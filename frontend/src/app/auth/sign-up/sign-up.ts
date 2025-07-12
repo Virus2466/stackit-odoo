@@ -19,7 +19,8 @@ import { Roles } from '../../model/interface';
 export class SignUp {
   signUpForm!: FormGroup;
   errorMessage: string | null = null;
-  roles: Roles[] = [];
+  roles:Roles = Roles.GUEST;
+  uiRoles:string[] = [Roles.ADMIN,Roles.GUEST,Roles.USER]
   constructor(
     private fb: FormBuilder,
     private localStorageService: LocalStorageService,
