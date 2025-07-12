@@ -5,22 +5,39 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/Users');
 const ROLES = require('../utils/roles');
 
-
 // Register a new user
 router.post('/register', async (req, res) => {
-    const {username , email , password } = req.body;
-    const existing = await User.findOne({ email });
-    if(existing) return res.status(400).json({ message: 'User already exists' });
+    const { username, email, password } = req.body;
 
+    const existing = await User.findOne({ email });
+    if (existing) return res.status(400).json({ message: 'User already exists' });
 
     const hashed = await bcrypt.hash(password, 10);
-    const user = new User({username, 
+    const user = new User({
+        username,
         email,
         passwordHash: hashed
     });
+
     await user.save();
-    res.status(201).json({ message: 'User registered successfully' });
+
+    // Create a token AFTER saving
+    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
+
+    res.status(201).json({
+        message: 'User registered successfully',
+        token,
+        user: {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            role: user.role
+        },
+        roles: ROLES
+    });
 });
+
+
 
 
 router.post('/login', async (req, res) => {
@@ -34,7 +51,7 @@ router.post('/login', async (req, res) => {
 
 
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
-    res.json({ token, user: { id: user._id, username: user.username, email: user.email, role: user.role }, roles : ROLES });
+    res.json({ token, user: { id: user._id, username: user.username, email: user.email, role: user.role }, roles : ROLES.USER });
 
 });
 

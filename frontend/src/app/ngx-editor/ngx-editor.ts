@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 })
 export class NgxEditor {
     html = '';
-  editor: NgxEditor;
+  editor!: NgxEditor;
   ngOnInit(): void {
     this.editor = new NgxEditor();
   }
 
   ngOnDestroy(): void {
-    this.editor.destroy();
+    this.editor.ngOnDestroy();
   }
 }
