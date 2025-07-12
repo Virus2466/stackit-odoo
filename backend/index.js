@@ -15,14 +15,15 @@ const authRoutes = require('./routes/auth');
 const questionRoutes = require('./routes/question');
 const answerRoutes = require('./routes/answer');
 const adminRoutes = require('./routes/admin');
-//const userRoutes = require('./routes/user');
-//const notificationRoutes = require('./routes/notification');
+const userRoutes = require('./routes/users');
+const notificationRoutes = require('./routes/notification');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/answers', answerRoutes);
-//app.use('/api/users', userRoutes);
-//app.use('/api/notifications', notificationRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 
 // MongoDB connection 
