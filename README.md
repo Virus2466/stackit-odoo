@@ -14,6 +14,8 @@ Email : jaydipsinghchouhan93@gmail.com
 Member 1 : Dev Patel
 Email : infgvirus@gmail.com
 
+Video Link : https://drive.google.com/file/d/1QyxRsV_1fOqlldp1hiL7ej4NoPvxWeqw/view?usp=sharing
+
 ---
 
 ## 🚀 Tech Stack
