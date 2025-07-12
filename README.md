@@ -37,7 +37,7 @@ Email : infgvirus@gmail.com
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/stackit.git
+git clone https://github.com/Virus2466/stackit-odoo
 cd stackit/backend
 ```
 
