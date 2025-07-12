@@ -20,19 +20,28 @@ router.post('/', async (req, res) => {
 // Get all Questions (public)
 router.get('/', async (req, res) => {
     const questions = await Question.find().populate('author', 'username').sort({ createdAt: -1 });
-    res.json(questions);
+    res.json(questions);    
 });
 
 // Get Question by ID (public)
 router.get('/:id', async (req, res) => {
-    const question = await Question.findById(req.params.id)
-        .populate('author', 'username')
-        .populate({
-            path: 'answers',
-            populate: { path: 'author', select: 'username' }
-        });
-    res.json(question);
+    try {
+        const id = req.params.id.trim(); // 👈 trim here
+        const question = await Question.findById(id)
+            .populate('author', 'username')
+            .populate({
+                path: 'answers',
+                populate: { path: 'author', select: 'username' }
+            });
+        if (!question) {
+            return res.status(404).json({ message: 'Question not found' });
+        }
+        res.json(question);
+    } catch (err) {
+        res.status(400).json({ message: 'Invalid ID format', error: err.message });
+    }
 });
+
 
 // Accept Answer (public, no auth)
 router.post('/:id/accept-answer', async (req, res) => {
