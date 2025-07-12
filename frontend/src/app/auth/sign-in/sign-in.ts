@@ -12,7 +12,7 @@ export class SignIn implements OnInit {
   constructor(private authService: Auth) {}
   ngOnInit(): void {
     this.authService
-      .signUp({ username: 'test', email: 'test@gmail.com', password: 'test!!' })
+      .signUp({ username: 'anothertesterman', email: 'test222222222@gmail.com', password: 'hellotest' })
       .subscribe({
         next: (res) => {
           console.log(res);
