@@ -8,5 +8,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './homepage.css'
 })
 export class Homepage {
-
+  questions:any[] = [];
 }

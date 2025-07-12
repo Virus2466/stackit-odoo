@@ -1,1 +1,65 @@
-<p>sign-in works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="bg-white shadow-md rounded-xl w-full max-w-md p-8">
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Sign In</h2>
+
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700"
+          >Email</label
+        >
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        @if( signInForm.get('email')?.invalid &&
+        signInForm.get('email')?.touched ){
+
+        <p class="text-sm text-red-500 mt-1">Valid email is required.</p>
+        }
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700"
+          >Password</label
+        >
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        @if( signInForm.get('password')?.invalid &&
+        signInForm.get('password')?.touched){
+
+        <p class="text-sm text-red-500 mt-1">Password is required.</p>
+        }
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <button
+          type="submit"
+          [disabled]="signInForm.invalid"
+          class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 transition duration-200"
+        >
+          Sign In
+        </button>
+      </div>
+
+      <!-- Error Message -->
+      @if(errorMessage){
+
+      <div class="text-center text-red-500 text-sm mt-2">
+        {{ errorMessage }}
+      </div>
+      }
+    </form>
+  </div>
+</div>
