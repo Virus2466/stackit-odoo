@@ -1,5 +1,9 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-100">
-  <div class="bg-white shadow-md rounded-xl w-full max-w-md p-8">
+<div
+  class="min-h-screen text-white flex items-center justify-center bg-[#1a1a1b]"
+>
+  <div
+    class="bg-[#1a1a1b] border-white rounded-2xl shadow-md rounded-xl w-full max-w-md p-8"
+  >
     <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Sign Up</h2>
 
     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="space-y-4">
@@ -60,6 +64,16 @@
           Sign Up
         </button>
       </div>
+
+      <hr />
+
+      <button
+        type="submit"
+        (click)="onLogIn()"
+        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 transition duration-200"
+      >
+        Sign in
+      </button>
 
       <!-- Error Message -->
       @if(errorMessage){

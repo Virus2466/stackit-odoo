@@ -23,3 +23,14 @@ export enum Roles {
   USER = 'user',
   GUEST = 'guest',
 }
+
+export interface Question {
+  _id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  answers: string[]; // assuming you will define Answer type separately
+  createdAt: string; // or Date if you convert
+  updatedAt: string;
+  __v: number;
+}

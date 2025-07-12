@@ -9,6 +9,7 @@ export class EndPoint {
 
   SIGN_UP = this.baseUrl + 'api/auth/register';
   SIGN_IN = this.baseUrl + 'api/auth/login';
-  GET_QUESTIONS = this.baseUrl + '';
+  GET_QUESTIONS = this.baseUrl + 'api/questions/';
+  GET_QUESTION_BY_ID = this.baseUrl + 'api/questions/';
   POST_QUESTIONS = this.baseUrl + 'api/questions';
 }

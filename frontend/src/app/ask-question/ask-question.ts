@@ -39,7 +39,11 @@ export class AskQuestion implements OnInit {
     this.apiService.postQuestion(this.questionForm.value).subscribe({
       next: (res) => {
         console.log(res);
+        this.questionForm.reset();
       },
+      error:(err)=>{
+        console.log(err.error.message);
+      }
     });
     console.log(this.questionForm.value);
   }

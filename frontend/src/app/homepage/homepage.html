@@ -31,40 +31,55 @@
           <button class="text-white">🔍</button>
         </div>
 
+        @if (!isUserLoggedIn) {
         <button
           class="border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
         >
           Login
         </button>
+        } @else {
+        <img
+          style="height: 50px; width: 50px; border-radius: 50%"
+          src="data:image/jpeg;base64,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"
+          alt="user"
+        />
+        }
       </div>
     </div>
+<<<<<<< Updated upstream
+=======
 
-    <!-- Question List -->
-    <div class="mt-6 space-y-6">
-      <!-- Question Item -->
-      @for (item of questions; track $index) {
-      <div class="border-b border-gray-700 pb-4">
-        <h2 class="text-lg font-semibold text-[#f48024]">
-          How to join 2 columns in a data set to make a separate column in SQL
-        </h2>
-        <p class="text-sm mt-1 text-gray-300">
-          I do not know the code for it as I am a beginner. As an example what I
-          need to do is like there is a column 1 containing first name and
-          column 2 consists of last name I want a column to combine ...
-        </p>
-        <div class="flex items-center justify-between mt-2">
-          <div class="flex gap-2 flex-wrap">
-            <span class="bg-gray-800 px-2 py-1 text-xs rounded">SQL</span>
-            <span class="bg-gray-800 px-2 py-1 text-xs rounded">Joins</span>
-          </div>
-          <span
-            class="bg-gray-900 px-2 py-1 text-xs rounded border border-white"
-            >3 ans.</span
-          >
+>>>>>>> Stashed changes
+    
+    @for (item of questions; track $index) {
+    <div class="border-b border-gray-700 pb-4" (click)="onClick(item._id)">
+      <h2 class="text-lg font-semibold text-[#f48024]">
+        {{ item.title }}
+      </h2>
+      <p class="text-sm mt-1 text-gray-300">
+        {{ item.description }}
+      </p>
+      <div class="flex items-center justify-between mt-2">
+        <div class="flex gap-2 flex-wrap">
+          @for (item of item.tags; track $index) {
+          <span class="bg-gray-800 px-2 py-1 text-xs rounded">{{
+            item
+          }}</span>
+          }
         </div>
-        <p class="mt-1 text-sm text-gray-400">User Name</p>
+        <span
+          class="bg-gray-900 px-2 py-1 text-xs rounded border border-white"
+          >{{item.answers?.length}} ans</span
+        >
       </div>
-      }
+      <p class="mt-1 text-sm text-gray-400">User Name</p>
     </div>
+    }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+    <!-- Question List -->
+  
   </div>
 </div>

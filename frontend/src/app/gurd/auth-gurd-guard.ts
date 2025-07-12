@@ -27,13 +27,13 @@ export class AuthGuard implements CanActivate {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     
-    const isLoggedIn = this.localStorageService.isLoggedIn();
+    const isLoggedIn = this.localStorageService.getUser();
 
     if (isLoggedIn) {
       return true;
     } else {
       // Redirect to login if not logged in
-      this.router.navigate(['/sign-in']);
+      this.router.navigate(['/signin']);
       return false;
     }
   }
