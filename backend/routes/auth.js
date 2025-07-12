@@ -48,7 +48,7 @@ router.post('/register', async (req, res) => {
     const user = new User({
         username,
         email,
-        passwordHash: hashed
+        passwordHash: hashed,
     });
 
     await user.save();
@@ -65,7 +65,6 @@ router.post('/register', async (req, res) => {
             email: user.email,
             role: user.role
         },
-        roles: ROLES
     });
 });
 
