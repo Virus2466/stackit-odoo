@@ -7,7 +7,7 @@ import { BASE_URL } from '../../enviroments/enviroment';
 export class EndPoint {
   baseUrl = BASE_URL;
 
-  SIGN_UP = this.baseUrl + 'api/auth/register';
-  SIGN_IN = this.baseUrl + 'api/auth/signin';
+  SIGN_UP = this.baseUrl + 'http://localhost:5000/api/auth/register';
+  SIGN_IN = this.baseUrl + 'http://localhost:5000/api/auth/signin';
   GET_QUESTIONS = this.baseUrl + '';
 }

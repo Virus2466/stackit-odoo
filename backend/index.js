@@ -5,12 +5,16 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:4200', // your Angular app URL
+  credentials: true
+}));
 
 // Import routes
 const authRoutes = require('./routes/auth');
 const questionRoutes = require('./routes/question');
 const answerRoutes = require('./routes/answer');
+const adminRoutes = require('./routes/admin');
 //const userRoutes = require('./routes/user');
 //const notificationRoutes = require('./routes/notification');
 
