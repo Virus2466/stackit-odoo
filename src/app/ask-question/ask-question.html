@@ -1,0 +1,68 @@
+
+  <div class="h-screen justify-center items-center flex">
+    <div class="w-full h-fit  max-w-2xl border border-white rounded-2xl p-6 bg-[#1a1a1b] text-white ">
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-white pb-2 mb-4">
+          <h1 class="text-2xl font-bold">StackIt</h1>
+          <div class="flex items-center gap-4">
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="hover:underline">Home</a>
+            <button class="bg-white p-2 rounded">
+              🔔
+            </button>
+            <img
+              src="https://avatars.githubusercontent.com/u/583231?v=4"
+              class="w-8 h-8 rounded-full border border-white"
+              alt="Avatar"
+            />
+          </div>
+        </div>
+  
+        <!-- Form -->
+        <form class="space-y-4">
+          <div>
+            <label class="block mb-1 text-white">Title</label>
+            <input
+              type="text"
+              class="w-full bg-[#0f0f0f] border border-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+  
+          <div>
+            <label class="block mb-1 text-white">Description</label>
+            <!-- Fake toolbar -->
+            <div class="bg-white text-black rounded-t-md px-2 py-1 flex items-center gap-2 text-sm">
+              <button class="hover:text-orange-500">B</button>
+              <button class="hover:text-orange-500 italic">I</button>
+              <button class="hover:text-orange-500">S</button>
+              <span class="mx-1 border-l h-4"></span>
+              <button>🔗</button>
+              <button>😊</button>
+              <button>📄</button>
+              <button>📋</button>
+              <button>📤</button>
+            </div>
+            <textarea
+              rows="5"
+              class="w-full bg-[#0f0f0f] border border-white rounded-b-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            ></textarea>
+          </div>
+  
+          <div>
+            <label class="block mb-1 text-white">Tags</label>
+            <input
+              type="text"
+              class="w-full bg-[#0f0f0f] border border-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+  
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="bg-[#f48024] hover:bg-orange-600 text-white px-6 py-2 rounded-md transition"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+  </div>
