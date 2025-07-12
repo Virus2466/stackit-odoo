@@ -57,4 +57,18 @@ router.post('/:id/upvote', auth, async (req, res) => {
     res.json({ message: 'Vote recorded successfully', answer });
 });
 
+
+// get Answers for a Question
+router.get('/:questionId', async (req, res) => {
+    const answers = await Answer.find({ question: req.params.questionId })
+        .populate('author', 'username')
+        .sort({ createdAt: -1 });
+    
+    if (!answers) return res.status(404).json({ message: 'No answers found for this question' });
+    
+    res.json(answers);
+});
+
+
+
 module.exports = router;
